@@ -1,9 +1,6 @@
-####################################
-# Runbook for disk space alert on Webserver cluster
-# Author : Engineer_Name
-# Date updated : 01/02/2014
-# Contact :engineer@company.com
-####################################
+# Alert : HTTP error rate on a webserver >=5% for 10 min
+
+# Runbook : 
 
 # Step1 : Check whether database server is healthy 
 
@@ -15,7 +12,6 @@ grep "Error|Critical" /path_to/logFile
 
 # Step3 : Check if third party processing service is up and running
 ping endpoint.thirdpartyservice.com 
-
 
 # Step 4 : Check if disk is full
 df -H /dev/critical_disk

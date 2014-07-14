@@ -1,8 +1,7 @@
-####################################
-# Runbook for disk space alert on Webserver cluster
-# Author : Engineer_Name
-# Date updated : 01/02/2014
-# Contact :engineer@company.com
-####################################
+# Alert : Status health check fails on a server (EC2 machine)
 
-# For reboot use case script is not applicable
+# Runbook : 
+
+# Step 1 : Call AWS API to restart/reboot the machine
+
+aws ec2 restart <instance_id>

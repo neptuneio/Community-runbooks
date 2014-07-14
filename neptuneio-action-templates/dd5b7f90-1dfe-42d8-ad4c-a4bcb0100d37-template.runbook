@@ -1,8 +1,6 @@
-####################################
-# Runbook for disk space alert on Webserver cluster
-# Author : Engineer_Name
-# Date updated : 01/02/2014
-# Contact :engineer@company.com
-####################################
+# Alert : CPU utilization <=5 % for 2 hours on an EC2 machine
 
-# For shutdown use case script is not applicable
+# Runbook : 
+
+# Step1 : For EC2 machines on Dev and Test clusters only (Not production)
+aws ec2 stop_instance <instance_id>

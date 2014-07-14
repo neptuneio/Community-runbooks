@@ -1,9 +1,6 @@
-####################################
-# Runbook for disk space alert on Webserver cluster
-# Author : Engineer_Name
-# Date updated : 01/02/2014
-# Contact :engineer@company.com
-####################################
+# Alert : Application transaction error rate >= 10 for 15 min
+
+# Runbook : 
 
 # Step1 : Check whether database server is healthy 
 

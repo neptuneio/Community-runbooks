@@ -1,12 +1,8 @@
-####################################
-# Runbook for disk space alert on Webserver cluster
-# Author : Engineer_Name
-# Date updated : 01/02/2014
-# Contact :engineer@company.com
-####################################
+# Alert : Memory utilization >=80% for 10 min on a server
+
+# Runbook :
 
 # Step1 : Look at list of processes running with high memory utiliation
-
 top -mem
 
 # Step2 : Check for out of memory errors in log files
