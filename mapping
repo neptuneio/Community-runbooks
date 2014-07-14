@@ -1,0 +1,6 @@
+High_memory_utilization_alert.sh:ff636a28-3a80-42d5-b18e-6bc1bd4582ef-template
+High_disk_space_utilization_alert.sh:e34797c7-edda-4af3-b935-5d9f13697499-template
+Shutdown_idle_EC2_instances.sh:dd5b7f90-1dfe-42d8-ad4c-a4bcb0100d37-template
+Http_error_rate_is_high_alert.sh:897be0ad-1797-4917-86c8-5f5ecbfa5734-template
+Reboot_server_when_not_pingable.sh:876cffad-42eb-4170-8559-31a36be1e345-template
+Transactions_error_rate_is_high_alert.sh:66396a27-0c93-49e8-9a9b-d240f596f2b1-template
