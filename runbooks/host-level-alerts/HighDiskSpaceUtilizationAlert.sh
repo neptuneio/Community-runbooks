@@ -2,12 +2,12 @@
 
 # Runbook
 
-# step1: get summary of disk space usgae
-echo "checking overall disk usage summary..."
-df -H 
+# Step1: Get summary of disk space usgae
+echo "Checking overall disk usage summary..."
+df -H
 
-# step2: check most common culprits
-echo "checking most common culprits..."
+# Step2: Check most common culprits
+echo "Checking most common culprits..."
 du -sh /tmp
 du -sh /var/apache/log
 du -sh /var/log
@@ -19,7 +19,7 @@ df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 " " $1 }'
 # Assuming logrotate job is alredy setup to archive logs
 sudo logrotate -f /etc/logrotate.conf
 
-# Step5: delete old files
+# Step5: Delete old files with caution
 # sudo rm /var/apache/log/web_server_old_logs
 
 

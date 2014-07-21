@@ -2,21 +2,21 @@
 
 # Runbook
 
-#step1: capture dmesg output
-echo "running dmesg to check for h/w errors..."
-dmesg 
+#Step1: Capture dmesg output
+echo "Running dmesg to check for h/w errors..."
+dmesg
 
-# step2: check logs for potential h/w errors
-echo "checking logs for errors..."
+# Step2: Check logs for potential h/w errors
+echo "Checking logs for errors..."
 tail /var/log/messages
 tail /var/log/debug
 tail /var/log/kern.log
 
-# step3: run any custom h/w checks script
+# Step3: Run any custom h/w checks script
 # /usr/local/myapplicaiton/scripts/checkhardwarefailure.pl
 
-# step4: reboot server if reboot fixes the problem
-# reboot 
+# Step4: Reboot server with caution, to see if reboot fixes the problem
+# reboot
 
-# step5: take host out out of the fleet
-# /usr/local/myapplication/scripts/decommissionhost 
+# Step5: Take host out out of the fleet
+# /usr/local/myapplication/scripts/decommissionhost

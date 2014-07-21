@@ -2,17 +2,17 @@
 
 # Runbook
 
-# step1: check webserver logs
+# Step1: Check webserver logs
 grep -i "ERROR|CRTICAL" /var/apache/*.log
 
-# step2: look for lines where you are throwing 500 errors in the access log
+# Step2: Look for lines where you are throwing 500 errors in the access log
 grep " 500 " /var/apache/access.log
 
-# step3: capture top 10 memory hogs on the webserver 
+# Step3: Capture top 10 memory hogs on the webserver 
 ps aux |sort -nrk 4 |head
 
-# step4: check disk usage
+# Step4: Check disk usage
 df -lh
 
-# step5: nothing worked, restart nginx server
+# Step5: Nothing worked, restart nginx server with caution
 # /etc/init.d/nginx restart

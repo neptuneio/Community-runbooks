@@ -2,8 +2,8 @@
 
 # Runbook
 
-# step1: check the health of instances under the ELB
+# Step1: Check the health of instances under the ELB
 aws elb describe-instance-health --load-balancer-name <elb-name>
 
-# step2: describe the load balancer attributes
+# Step2: Describe the load balancer attributes
 aws elb describe-load-balancer-attributes --load-balancer-name <elb-name>
