@@ -1,7 +1,7 @@
 Runbooks
 ========
 
-A runbook is a list of diagnostic or resolution steps for an on-call engineer to execute to resolve an IT alert.
+A runbook is a list of diagnostic or remediation steps for an on-call engineer to execute to resolve an IT alert.
 
 Explore different categories of alerts under "runbooks" directory above.
 
@@ -10,7 +10,7 @@ application-alerts
 db-alerts
 network-alerts
 
-You can also contribute your own runbook into community-runbooks directory. Please see step 4, under How to user, to know how to contribute.
+If you have interesting alert use-cases and runbooks, please send in a pull request
 
 Sample Use cases
 ================
@@ -21,17 +21,12 @@ Sample Use cases
 * When an alert comes, send a set of runbook steps to the on-call engineer
 * When EC2 instance is idle for 2 hrs, stop the instance to save costs
 
-In general you will be able to execute any generic shell script, when an alert comes. Its powerful, Try it out, and tell us more use cases and contribute to the community.
 
 How to use
 ==========
 
-1. You can download a runbook of your choice for a particular use-case and link it to the alert/webhook trigger on Neptune.io platform (www.neptune.io/browse-templates.
+1. Sign up with Neptune.io
 
-2. You can use runbook links from github as part of the alert message so that an engineer know what steps to execute when an IT alert comes
+2. While creating a rule, click the dropdown list in the runbook section. Search for a runbook using keywords (e.g : disk, memory etc.). You can select a runbook and then edit it to customize it your environment.
 
-3. You can always fork a runbook, and create a pull request
-
-4. In general if you want to contribute a runbook of your own, please fork and write a runbook in community-runbooks directory, confirming to a sample runbook given. Please create a pull request. Then we will review and add your runbook for everyone to use.
-
-5. Please contact team@neptune.io for any suggestions or thoughts.
+5. Please contact support@neptune.io for any suggestions or thoughts.
