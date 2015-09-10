@@ -3,7 +3,7 @@
 # Runbook
 
 # Step1: Check webserver logs
-grep -i "ERROR|CRTICAL" /var/apache/*.log
+grep -i "ERROR|CRITICAL" /var/apache/*.log
 
 # Step2: Look for lines where you are throwing 500 errors in the access log
 grep " 500 " /var/apache/access.log

@@ -3,12 +3,13 @@
 # Runbook
 
 # Step1: Capture any diagnostics for follow up investigation
-tail -f /var/nginx/log/nginx.log
-top -l 3 -s 10
+sudo tail -100 /var/log/nginx/access.log
+top -b -n 1
 
 # Step2: Is the proces now running
-pgrep nginx
-echo "Is the process running: $?"
+echo "Checking if nginx is running still"
+pgrep -x nginx
 
 # Step 3: Restart nginx server if required, with caution
-# /etc/init.d/nginx restart
+echo "Restarting nginx";
+sudo /etc/init.d/nginx restart
