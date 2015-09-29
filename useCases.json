@@ -8,7 +8,7 @@
         {
             "type" : "Execute Script",
             "data" : {
-                "runbookUrl" : "github-url",
+                "runbookUrl" : "github-url"
             }
         },
         {
@@ -17,7 +17,7 @@
                 "steps" : [
                     "Collect queue size metrics",
                     "Collect error rate graph"
-                ],
+                ]
             }
         }
     ] 
