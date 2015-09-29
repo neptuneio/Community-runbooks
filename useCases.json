@@ -1,0 +1,24 @@
+[{
+        trigger : {
+            "description" : "When a process is hung",
+            "tags" : ["pingdom", "newrelic"]
+
+        },
+        action : [
+            {
+                "type" : "Execute Script",
+                "data" : {
+                    "runbookUrl" : "github-url",
+                }
+            },
+            {
+                "type" : "Graph snapshot",
+                "data" : {
+                    "steps" : [
+                        "Collect queue size metrics",
+                        "Collect error rate graph"
+                    ],
+                }
+            }
+        ] 
+    }]
