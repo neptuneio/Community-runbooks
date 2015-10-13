@@ -160,7 +160,7 @@
   },
 
   {
-    "tags" : [ "AWSDynamoDB" ],
+    "tags" : [ "AmazonDynamoDB" ],
     "trigger" : {
       "description" : "Whenever #throttled requests for a DynamoDB table is > threshold"
     },
@@ -212,7 +212,7 @@
   },
 
   {
-    "tags" : [ "Service Availability", "URL Monitoring" ],
+    "tags" : [ "ServiceAvailability", "URLMonitoring" ],
     "trigger" : {
       "description" : "Whenever URL is not pingable"
     },
@@ -246,7 +246,7 @@
   },
 
   {
-    "tags" : [ "Service Availability", "URL Monitoring" ],
+    "tags" : [ "ServiceAvailability", "URLMonitoring" ],
     "trigger" : {
       "description" : "Whenever URL ping response does not match expected search string"
     },
@@ -1043,7 +1043,7 @@
   },
 
   {
-    "tags": [ "Apache/Nginx" ],
+    "tags": [ "ApacheNginx" ],
     "trigger": {
       "description": "Whenever apache has crashed"
     },
@@ -1069,7 +1069,7 @@
   },
 
   {
-    "tags": [ "Apache/Nginx" ],
+    "tags": [ "ApacheNginx" ],
     "trigger": {
       "description": "Whenever nginx has crashed"
     },
@@ -1095,7 +1095,7 @@
   },
 
   {
-    "tags": [ "Hadoop/Hbase" ],
+    "tags": [ "HadoopHbase" ],
     "trigger": {
       "description": "Whenever percent_used_diskspace is > threshold on a hbase node"
     },
@@ -1121,7 +1121,7 @@
   },
 
   {
-    "tags": [ "Hadoop/Hbase" ],
+    "tags": [ "HadoopHbase" ],
     "trigger": {
       "description": "Whenever a node is blacklisted in hadoop cluster"
     },
