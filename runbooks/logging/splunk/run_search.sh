@@ -1,15 +1,18 @@
-username=neptune-read-only-user
-password=neptune
-splunk_endpoint=https://ec2-54-165-131-64.compute-1.amazonaws.com:8089
+# Splunk search runbook
 
-# enter your search string here
-search_string="status>200"
+# Splunk credentails & endpoint here
+USERNAME=neptune-read-only-user
+PASSWORD=neptune
+SPLUNK_ENDPOINT=https://ec2-54-165-131-64.compute-1.amazonaws.com:8089
 
-# run a search and capture search_id
-search_id=`curl -sS -k -u $username:$password ${splunk_endpoint}/services/search/jobs -d search="search ${search_string}" | grep sid | cut -d ">" -f2 | cut -d "<" -f1`
+# Search string here
+SEARCH_STRING="status>200"
 
-# wait for a few seconds (increase as appropriate)
+# Run a search and capture search_id 
+SEARCH_ID=`curl -sS -k -u $USERNAME:$PASSWORD ${SPLUNK_ENDPOINT}/services/search/jobs -d search="search ${SEARCH_STRING}" | grep sid | cut -d ">" -f2 | cut -d "<" -f1`
+
+# Wait for a few seconds (Increase waiting time as appropriate)
 sleep 5
 
-# fetch the results now
-curl -sS -k -u $username:$password ${splunk_endpoint}/services/search/jobs/${search_id}/results --get -d output_mode=raw
+# Fetch the search results now
+curl -sS -k -u $USERNAME:$PASSWORD ${SPLUNK_ENDPOINT}/services/search/jobs/${SEARCH_ID}/results --get -d output_mode=raw
