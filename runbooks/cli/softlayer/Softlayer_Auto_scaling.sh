@@ -1,4 +1,3 @@
-# ALERT : Queue size high alert from any monitoring tool
 # Softlayer Auto-scale Runbook
 
 # Step1: Check number of softlayer virtual servers running
@@ -6,7 +5,7 @@ echo "Checking Softlayer virtual server count"
 echo "---------------------------------------"
 slcli vs list
 
-# Step2 : Scale up virtual servers with a tag
+# Step2 : Scale up virtual servers with a tag name
 TAG="tag_name_here"
 
 echo "Scaling up virtual servers in tag $TAG"
@@ -21,15 +20,15 @@ servers_count=$(slcli vs list | grep "Assign Host" | wc -l)
 if [ "$servers_count" -gt 2 ]
 then
     slcli vs cancel <count_of_servers_to_cancel, eg: 5> -tag $TAG
-  # If required scale down to particular worker count at once
+  # If required scale down to particular server count at once
   # slcli vs cancel down to <2>
 fi
 
 # Step4: Wait for 60 seconds to check if scaling up/down is successful
 echo "Checking number of virtual servers"
-echo "--------------------"
+echo "----------------------------------"
 sleep 60
 slcli vs list
 
-# Above commands are just a sample of what you can do with Softlayer CLI. Use 'slcli help' or refer to https://github.com/pearkes/tugboat for more tugboat commands
-
+# Above commands are just a sample of what you can do with Softlayer CLI. 
+# Use 'slcli help' or refer to http://softlayer-api-python-client.readthedocs.org/en/latest/cli/#usage-examples for more info

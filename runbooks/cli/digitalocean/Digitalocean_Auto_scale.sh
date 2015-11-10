@@ -1,4 +1,3 @@
-# ALERT : Queue size high alert from any monitoring tool
 # Digital ocean Auto-scale Runbook
 
 # Step1: Check number of Digital ocean droplets running in a region of interest
@@ -11,7 +10,7 @@ echo "Scaling up droplets"
 echo "-------------------"
 tugboat create app-www-002 -s 512mb -i ubuntu-12-04-x64 -r nyc2 -k 11251
 
-# Step3 : Scale down droplets maintaining a minimum of 1 worker dyno
+# Step3 : Scale down droplets maintaining a minimum of 2 droplets
 echo "Scaling down droplets"
 echo "---------------------"
 droplets_count=$(tugboat droplets | wc -l)
