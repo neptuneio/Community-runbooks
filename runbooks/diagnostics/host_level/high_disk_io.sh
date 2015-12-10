@@ -1,7 +1,7 @@
 # ALERT : Disk IO high on a server
 
 # Step 1: Get top snapshot
-echo "\nChecking process statistics; Look for %wa"
+echo "Checking process statistics; Look for %wa"
 echo "---------------------------"
 top -n 1 -b
 
@@ -18,6 +18,15 @@ hash iotop 2>/dev/null && iotop -to -d 5
 # Step 3: Check for three most common high diskIO culprits : Bad disk, Faulty memory, network problems
 echo "Checking system logs for disk errors"
 echo "---------------------------"
-[ -f /etc/messages ] && cat /etc/messages
-[ -f /etc/dmesg ] && cat /etc/dmesg
-[ -f /etc/boot.log ] && cat /etc/boot.log
+if [ -f /etc/messages ]; then
+    cat /etc/messages
+fi
+
+if [ -f /etc/dmesg ]; then
+    cat /etc/dmesg
+fi
+
+if [ -f /etc/boot.log ]; then
+    cat /etc/boot.log
+fi
+
