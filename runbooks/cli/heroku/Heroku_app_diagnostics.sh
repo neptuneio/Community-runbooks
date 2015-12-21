@@ -1,41 +1,39 @@
-# ALERT : From NewRelic or AWS cloudwatch or any other monitoring tool
 # Heroku diagnostics Runbook
 
-# Add your APP_NAME and END_POINT_URL below
-APP_NAME="heroku_app_name"
-END_POINT_URL="https://xyz.herokuapp.com/index.html"
+APP_NAME="heroku_app_name_here"
+APP_URL="https://app_name.herokuapp.com/index.html"
 
-# Step1 : Check if webapp is up and running for an end user
-echo "Ping status of URL : $END_POINT_URL"
+# Step 1: Check if webapp is up and running for an end user
+echo "Ping status of URL : $APP_URL"
 echo "---------------------------"
-curl -s -I $END_POINT_URL
+curl -s -I $APP_URL
 
-# Step2: Check heroku logs
-echo "Checking Heroku logs"
+# Step 2: Check heroku logs
+echo "Last 200 lines of heroku logs"
 echo "--------------------"
 heroku logs -n 200 --app $APP_NAME
 
-# Step3: Check number of heroku processes/dynos running
-echo "Checking Heroku Processes"
+# Step 3: Check number of heroku processes/dynos running
+echo "Processes running"
 echo "--------------------"
 heroku ps --app $APP_NAME
 
-# Step4: Check heroku recent releases
-echo "Checking Heroku recent releases"
+# Step 4: Check heroku recent releases
+echo "Recent releases"
 echo "-------------------------------"
 heroku releases --app $APP_NAME
 
-# Step5: Restarting heroku app if needed
+# Step 5: Restart heroku app if needed
 #echo "Restarting heroku app"
 #echo "---------------------"
-#heroku restart  --app $APP_NAME
+#heroku ps:restart --app $APP_NAME
 
-# Step6: Rollback if needed to a specific version
+# Step 6: Rollback if needed to a specific version
 #echo "Rolling back to version v<10>"
 #echo "-----------------------------"
 #heroku rollback v<10> --app $APP_NAME
 
-# Step7: Scale up no. of heroku dynos if necessary
-#echo "Scaling up to 2 heroku dynos"
+# Step 7: Scale up no. of heroku dynos if necessary
+#echo "Scaling up to 2 heroku web dynos and 3 worker dynos"
 #echo "-----------------------"
-#heroku scale web=2 --app $APP_NAME
+#heroku ps:scale web=2 worker=3 --app $APP_NAME
