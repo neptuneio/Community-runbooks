@@ -559,13 +559,13 @@
     {
         "tags": [ "Heroku", "Popular" ],
         "trigger": {
-            "description": "Whenever sidekiq queue size is > threshold for a heroku app"
+            "description": "Whenever sidekiq queue size is high"
         },
         "action_group" : {
             "template": {
                 "id": "",
                 "category": "heroku",
-                "name": "auto_scale_heroku_dynos.json"
+                "name": "sidekiq_scale_up.json"
             },
             "action": [
                 {
@@ -628,13 +628,13 @@
     {
         "tags": [ "Heroku" ],
         "trigger": {
-            "description": "Whenever request throughput is < a threshold"
+            "description": "Whenever request throughput is less than a threshold"
         },
         "action_group" : {
             "template": {
                 "id": "",
                 "category": "heroku",
-                "name": "auto_scale_heroku_dynos.json"
+                "name": "sidekiq_scale_up.json"
             },
             "action": [
                 {
@@ -677,6 +677,15 @@
                         "runbookUrl": "https://raw.githubusercontent.com/neptuneio/Community-runbooks/master/runbooks/cli/heroku/Heroku_pg_db_backup.sh",
                         "steps": [
                             "Take a backup of postgres db"
+                        ]
+                    }
+                },
+                {
+                    "type": "Graph Snapshot",
+                    "data": {
+                        "steps": [
+                            "Get weekly summary snapshot of NewRelic appdex",
+                            "Get weekly summary snapshot of NewRelic latency graph"
                         ]
                     }
                 }
