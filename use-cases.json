@@ -40,7 +40,7 @@
             "template": {
                 "id": "",
                 "category": "amazon_ec2",
-                "name": "",
+                "name": ""
             },
             "action": [
                 {
@@ -599,7 +599,7 @@
             "template": {
                 "id": "",
                 "category": "heroku",
-                "name": "auto_scale_heroku_dynos.json"
+                "name": "8pm_scale_down_dynos_and_send_daily_summary.json"
             },
             "action": [
                 {
@@ -609,6 +609,15 @@
                         "steps": [
                             "Scale down heroku dynos",
                             "Don't scale down below certain lower limit"
+                        ]
+                    }
+                },
+                {
+                    "type": "Graph Snapshot",
+                    "data": {
+                        "steps": [
+                            "Get daily summary snapshot of NewRelic appdex",
+                            "Get daily summary snapshot of NewRelic latency graph"
                         ]
                     }
                 }
