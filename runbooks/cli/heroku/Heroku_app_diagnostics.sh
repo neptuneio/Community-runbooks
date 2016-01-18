@@ -24,16 +24,21 @@ echo "-------------------------------"
 heroku releases --app $APP_NAME
 
 # Step 5:
+#echo "Heroku platform status"
+#echo "---------------------"
+heroku status
+
+# Step 6:
 #echo "Restarting heroku app"
 #echo "---------------------"
 #heroku ps:restart --app $APP_NAME
 
-# Step 6:
+# Step 7:
 #echo "Rolling back to version v<10>"
 #echo "-----------------------------"
 #heroku rollback v<10> --app $APP_NAME
 
-# Step 7:
+# Step 8:
 #echo "Scaling up to 2 heroku web dynos and 3 worker dynos"
 #echo "-----------------------"
 #heroku ps:scale web=2 worker=3 --app $APP_NAME
