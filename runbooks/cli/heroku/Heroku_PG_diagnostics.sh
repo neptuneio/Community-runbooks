@@ -6,12 +6,12 @@ APP_NAME="your_app_name_here"
 heroku pg:blocking -a $APP_NAME
 heroku pg:locks -a $APP_NAME
 
-# Run a pg diagnose report.
+# Get a pg diagnose report.
 heroku pg:diagnose -a $APP_NAME
 
 # Check all the long running queries.
 heroku pg:long-running-queries -a $APP_NAME
 
-# Kill all pg connections, if you think that is ok.
+# Kill all connections and immediately restart app
 # heroku pg:killall -a $APP_NAME
-
+# heroku restart -a $APP_NAME
