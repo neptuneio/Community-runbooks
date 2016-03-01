@@ -15,8 +15,8 @@ then
   echo "---------------------------"
   heroku ps:scale $DYNO_TYPE+1 --app $APP_NAME
 
-  # If required scale up to particular web dynos and dyno count at once
-  # heroku scale web=2 $DYNO_TYPE=$MAX_NUM_DYNOS --app $APP_NAME
+  # If required scale up to a particular dyno count at once
+  # heroku scale web=2 worker=4 --app $APP_NAME
 fi
 
 sleep 5
