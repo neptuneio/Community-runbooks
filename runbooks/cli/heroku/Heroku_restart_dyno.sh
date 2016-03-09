@@ -1,7 +1,7 @@
 # Use the app and dyno information from trigger JSON
 # You might have to change these variables based on your trigger.
 
-APP_NAME=$NP_TRIGGER_APP
+APP_NAME=$NP_TRIGGER_HOST
 DYNO_NAME=$NP_TRIGGER_DYNO
 
 # Restart web or worker dynos only
