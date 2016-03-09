@@ -6,7 +6,7 @@ echo "Heroku Processes/dyno count before scaling down at the end of day"
 echo "--------------------"
 heroku ps --app $APP_NAME
 
-heroku scale web=2 worker=4 --app $APP_NAME
+heroku ps:scale web=2 worker=4 --app $APP_NAME
 
 sleep 30
 
