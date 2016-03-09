@@ -1,6 +1,4 @@
-# Use the app and dyno information from trigger JSON
-# You might have to change these variables based on your trigger.
-
+# Neptune makes available the app and dyno information by parsing your alarm JSON. Use it
 APP_NAME=$NP_TRIGGER_HOST
 DYNO_NAME=$NP_TRIGGER_DYNO
 
