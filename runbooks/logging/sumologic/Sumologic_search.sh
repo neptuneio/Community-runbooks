@@ -1,17 +1,16 @@
-# Sumo logic search runbook
+# Modify the search string per your needs.
+SEARCH_STRING="ERROR"
 
-# Sumo logic credentials & endpoint here
-API_KEY="xyz"
-SUMOLOGIC_ENDPOINT=https://ec2-54-165-131-64.compute-1.amazonaws.com:8089
+# Modify this to change the duration from which to get logs.
+DURATION="15 mins ago"
 
-# Search string here
-SEARCH_STRING="status>200"
+CURRENT_MILLIS=$(($(date +'%s * 1000 + %-N / 1000000')))
+FROM_MILLIS=$(($(date --date="${DURATION}" +'%s * 1000 + %-N / 1000000')))
 
-# Run a search and capture search_id 
-SEARCH_ID=`curl -sS -k -u $API_KEY ${SUMOLOGIC_ENDPOINT}/services/search/jobs -d search="search ${SEARCH_STRING}" | grep sid | cut -d ">" -f2 | cut -d "<" -f1`
+QUERY="${SUMO_API_ENDPOINT}/logs/search?q=${SEARCH_STRING}&from=${FROM_MILLIS}&to=${CURRENT_MILLIS}"
 
-# Wait for a few seconds for search to finish (Increase waiting time as appropriate)
-sleep 5
+echo "Querying SumoLogic with query: $QUERY"
 
 # Fetch the search results now
-curl -sS -k -u $API_KEY ${SUMOLOGIC_ENDPOINT}/services/search/jobs/${SEARCH_ID}/results --get -d output_mode=raw
+curl -sS -u ${SUMO_ACCESS_ID}:${SUMO_ACCESS_KEY} "$QUERY"
+
