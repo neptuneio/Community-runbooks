@@ -1,9 +1,10 @@
 #!/usr/bin/env python
+# Runbook to get ELB logs and grep them for required status codes.
 # This runbook can be run as AWS CLI action while the trigger could be a
 # CloudWatch alarm on 5xx count > 0 on ELB or any other trigger. If the
 # trigger is from CloudWatch and the alarm contains the ELB as one dimension,
-# we make the ELB name available as an env variable so you don't need to fill
-# that as well.
+# the ELB name will be available as an env variable but otherwise, you need 
+# to replace the ELB name in the runbook.
 #
 # Also, this runbook takes at least 5 min because of the sleep interval so make
 # sure you give an action timeout more than 5 min.
@@ -21,12 +22,9 @@ AWS_ACCOUNT_ID=615799110750
 # Put the s3 location of your ELB logs here. 
 ELB_LOGS_S3_LOCATION="bucket/optional_folder"
 
-# Uncomment this if the trigger is from CloudWatch and if the alert contains the
-# load balancer name as a dimension.
-#ELB_NAME=os.environ('LoadBalancerName')
-
-# If the trigger is not CloudWatch alarm, fill your ELB name here.
-ELB_NAME="put_ELB_name_here"
+# Replace the default ELB name with yours if the trigger is not from CloudWatch or 
+# if the alert does not contain the load balancer name as a dimension.
+ELB_NAME=os.getenv('LoadBalancerName', 'put_elb_name_here')
 
 # grep pattern to search all logs which have ELB status code >= 400
 # Change this based on what do you want to grep for in the access logs.
