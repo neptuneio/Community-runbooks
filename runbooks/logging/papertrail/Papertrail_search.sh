@@ -1,17 +1,10 @@
 # Papertrail search runbook
 
 # Papertrail credentials & endpoint here
-API_KEY="xyz"
-PAPERTRAIL_ENDPOINT=https://ec2-54-165-131-64.compute-1.amazonaws.com:8089
+API_KEY="xxx"
 
 # Search string here
-SEARCH_STRING="status>200"
+SEARCH_STRING="200"
 
-# Run a search and capture search_id 
-SEARCH_ID=`curl -sS -k -u $API_KEY ${PAPERTRAIL_ENDPOINT}/services/search/jobs -d search="search ${SEARCH_STRING}" | grep sid | cut -d ">" -f2 | cut -d "<" -f1`
-
-# Wait for a few seconds for search to finish (Increase waiting time as appropriate)
-sleep 5
-
-# Fetch the search results now
-curl -sS -k -u $API_KEY ${PAPERTRAIL_ENDPOINT}/services/search/jobs/${SEARCH_ID}/results --get -d output_mode=raw
+# Run the search query
+curl -Ss -G -H "X-Papertrail-Token: $API_KEY" "https://papertrailapp.com/api/v1/events/search.json" --data-urlencode "q=200" -d output_mode=raw
